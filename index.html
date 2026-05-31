@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>써니엔터테인먼트 · 레트로 리메이크 사업 전략 보고서 v2.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+:root{
+  --bg:#F5F4F0;--ink:#15151D;--acc:#FF6B1F;--accink:#FFFFFF;
+  --hair:rgba(21,21,29,0.15);--muted:rgba(21,21,29,0.55);
+  --clip:polygon(0 0, 100% 0, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  --clip-tr:polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.mono{font-family:"JetBrains Mono",monospace}
+.disp{font-family:"Inter",sans-serif;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;line-height:0.95}
+a{color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:76px 0;border-bottom:1px solid var(--hair)}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:18px}
+.kicker .n{color:var(--muted)}
+h2.sec{font-family:"Inter";font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;font-size:clamp(32px,5vw,60px);line-height:0.95;margin-bottom:8px}
+.lede{font-size:18px;max-width:1100px;margin-top:18px}
+.sub{font-size:13px;color:var(--muted)}
+.docctrl{background:var(--ink);color:var(--bg)}
+.docctrl .wrap{display:flex;justify-content:space-between;align-items:center;height:34px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;flex-wrap:wrap}
+.docctrl .l{opacity:.6}
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--hair)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{display:flex;align-items:center;gap:12px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700}
+.mark{width:4px;height:18px;background:var(--acc);display:inline-block}
+.nav{display:flex;gap:1px;flex-wrap:wrap}
+.nav a{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 7px;font-weight:500}
+.nav a:hover{color:var(--acc)}
+@media(max-width:980px){.nav{display:none}}
+.cover{padding-top:60px}
+.cover-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:end}
+@media(max-width:880px){.cover-grid{grid-template-columns:1fr}}
+.cover h1{font-size:clamp(46px,8.5vw,108px)}
+.cover h1 .ar{color:var(--acc)}
+.cover .meta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:24px;letter-spacing:.03em;line-height:1.9}
+.statcard{background:var(--acc);color:var(--accink);padding:24px 22px;clip-path:var(--clip);position:relative}
+.statcard + .statcard{margin-top:13px}
+.statcard .ar{position:absolute;top:15px;right:17px;width:28px;height:28px;border:1.5px solid rgba(255,255,255,.7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px}
+.statcard .v{font-family:"Inter";font-weight:800;font-size:38px;line-height:1}
+.statcard .l{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.09em;margin-top:9px;opacity:.92}
+.premise{background:var(--ink);color:var(--bg);padding:18px 24px;margin-top:34px;clip-path:var(--clip-tr);display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.premise .t{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:700}
+.premise .d{font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:880px){.grid2,.grid3{grid-template-columns:1fr}}
+.card{border:1px solid var(--hair);padding:24px;background:#FBFAF7}
+.card h3{font-size:18px;font-weight:800;margin-bottom:10px}
+.card p{font-size:14.5px}
+.card .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+.statwide{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+@media(max-width:880px){.statwide{grid-template-columns:repeat(2,1fr)}}
+.bigstat{border-top:3px solid var(--acc);padding-top:14px}
+.bigstat .v{font-family:"Inter";font-weight:800;font-size:clamp(26px,3.6vw,42px);line-height:1}
+.bigstat .l{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:8px}
+.chart{margin-top:30px;border:1px solid var(--hair);padding:26px;background:#FBFAF7}
+.bar-row{display:flex;align-items:center;gap:14px;margin:13px 0}
+.bar-row .yr{font-family:"JetBrains Mono",monospace;font-size:12px;width:118px;color:var(--muted);font-weight:500}
+.bar-track{flex:1;height:24px;background:rgba(21,21,29,.06);position:relative}
+.bar-fill{height:100%;background:var(--acc)}
+.bar-fill.ghost{background:rgba(21,21,29,.18)}
+.bar-row .val{font-family:"JetBrains Mono",monospace;font-size:12px;width:88px;text-align:right;font-weight:700}
+.legend{font-size:12px;color:var(--muted);margin-top:12px}
+.legend b{color:var(--ink)}
+.osmu-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;border:1px solid var(--hair)}
+@media(max-width:880px){.osmu-flow{grid-template-columns:1fr}}
+.osmu-step{padding:26px 22px;border-right:1px solid var(--hair);position:relative;background:#FBFAF7}
+.osmu-step:last-child{border-right:none}
+.osmu-step:nth-child(1){background:var(--acc);color:#fff}
+.osmu-step .ph{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.1em;opacity:.85}
+.osmu-step h4{font-family:"Inter";font-weight:900;text-transform:uppercase;font-size:18px;margin:8px 0 8px}
+.osmu-step p{font-size:13px}
+.osmu-step .arr{position:absolute;right:-11px;top:50%;transform:translateY(-50%);z-index:3;font-size:18px;color:var(--acc);font-weight:700;background:var(--bg);width:22px;text-align:center}
+@media(max-width:880px){.osmu-step{border-right:none;border-bottom:1px solid var(--hair)}.osmu-step .arr{right:auto;left:50%;top:auto;bottom:-11px;transform:translateX(-50%)}}
+.sideblock{background:var(--acc);color:var(--accink);padding:30px 28px;clip-path:var(--clip)}
+.sideblock h3{font-family:"Inter";font-weight:900;text-transform:uppercase;font-size:22px;margin-bottom:12px}
+.sideblock p{font-size:14.5px;opacity:.96}
+.sideblock .lab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-bottom:8px}
+.vs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--hair)}
+@media(max-width:880px){.vs{grid-template-columns:1fr}}
+.vs > div{padding:26px}
+.vs .col{border-right:1px solid var(--hair)}
+.vs .col:last-child{border-right:none}
+@media(max-width:880px){.vs .col{border-right:none;border-bottom:1px solid var(--hair)}}
+.vs h3{font-family:"Inter";font-weight:900;text-transform:uppercase;font-size:20px;margin-bottom:4px}
+.vs .who{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--acc);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
+.vs ul{list-style:none}
+.vs li{font-size:13.5px;padding:9px 0 9px 18px;border-bottom:1px dashed var(--hair);position:relative}
+.vs li:before{content:"↗";position:absolute;left:0;color:var(--acc);font-weight:700}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 16px}
+.fbtn{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;font-weight:500}
+.fbtn.active{background:var(--ink);color:var(--bg)}
+.fbtn:hover{border-color:var(--acc);color:var(--acc)}.fbtn.active:hover{color:var(--bg)}
+.tablewrap{overflow-x:auto;border:1px solid var(--hair)}
+table{border-collapse:collapse;width:100%;min-width:0;background:#FBFAF7}
+th,td{padding:7px 7px;text-align:left;border-bottom:1px solid var(--hair);font-size:12px}
+th{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none;white-space:normal;font-weight:700;position:sticky;top:0;background:#F0EEE9}
+th:hover{color:var(--acc)}
+th.num,td.num{text-align:center;width:42px}
+td.title{font-weight:700}
+td .en{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--muted);display:block;font-weight:400;text-transform:uppercase;letter-spacing:.03em}
+tr.pick{background:rgba(255,107,31,.08)}
+tr.pick td.title:after{content:"★";color:var(--acc);margin-left:6px;font-size:11px}
+tr.flagrow{background:rgba(21,21,29,.05)}
+tr.flagrow td.title:after{content:"※";color:var(--ink);margin-left:6px;font-size:11px}
+.scorecell{font-family:"JetBrains Mono",monospace;font-weight:700}
+.totcell{font-family:"Inter";font-weight:800;font-size:15px}
+.potcell{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;color:var(--muted)}
+.cellbar{height:5px;background:rgba(21,21,29,.08);margin-top:4px}.cellbar>i{display:block;height:100%;background:var(--acc)}
+.holdertag{font-family:"JetBrains Mono",monospace;font-size:10px;padding:2px 6px;border:1px solid var(--hair);text-transform:uppercase}
+.histcell{font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--muted);line-height:1.35;min-width:96px;max-width:140px}
+.t5{border:1px solid var(--hair);background:#FBFAF7;margin-top:22px}
+.t5 .head{background:var(--ink);color:var(--bg);padding:18px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.t5 .rk{font-family:"Inter";font-weight:900;font-size:40px;color:var(--acc);line-height:1}
+.t5 .nm{font-family:"Inter";font-weight:900;text-transform:uppercase;font-size:22px}
+.t5 .nm small{display:block;font-family:"JetBrains Mono",monospace;font-weight:400;font-size:11px;opacity:.7;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+.t5 .scorebadge{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;border:1px solid rgba(255,255,255,.4);padding:6px 12px}
+.t5 .scorebadge b{font-family:"Inter";font-size:16px;color:var(--acc)}
+.t5 .body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:880px){.t5 .body{grid-template-columns:1fr}}
+.t5 .cell{padding:22px 24px;border-top:1px solid var(--hair);border-right:1px solid var(--hair)}
+.t5 .cell:nth-child(even){border-right:none}
+@media(max-width:880px){.t5 .cell{border-right:none}}
+.t5 .cl{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:8px}
+.t5 .cell p{font-size:14px}
+.t5 .cell.full{grid-column:1 / -1;border-right:none;background:rgba(255,107,31,.05)}
+.altrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.altchip{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--hair);padding:8px 13px;background:#FBFAF7}
+.altchip b{color:var(--acc)}
+.flagbox{border:2px solid var(--ink);margin-top:24px}
+.flagbox .fh{background:var(--ink);color:var(--bg);padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.flagbox .fh .nm{font-family:"Inter";font-weight:900;text-transform:uppercase;font-size:18px}
+.flagbox .fh .nm small{font-family:"JetBrains Mono",monospace;font-weight:400;font-size:10px;opacity:.7;letter-spacing:.04em;display:block;text-transform:uppercase;margin-top:2px}
+.flagbox .fh .scorebadge{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.4);padding:6px 12px}
+.flagbox .fh .scorebadge b{font-family:"Inter";color:var(--acc);font-size:16px}
+.flagbox .fb{padding:22px 24px}
+.flagbox .fb p{font-size:14px;margin-bottom:10px}
+.flagbox .fb p:last-child{margin-bottom:0}
+.dealgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--hair);margin-top:8px}
+@media(max-width:880px){.dealgrid{grid-template-columns:1fr}}
+.dealgrid .d{padding:24px;border-right:1px solid var(--hair)}
+.dealgrid .d:last-child{border-right:none}
+@media(max-width:880px){.dealgrid .d{border-right:none;border-bottom:1px solid var(--hair)}}
+.dealgrid .num{font-family:"JetBrains Mono",monospace;color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.1em}
+.dealgrid h4{font-size:16px;font-weight:800;margin:8px 0}
+.dealgrid p{font-size:13.5px}
+.steps{margin-top:10px}
+.step{display:grid;grid-template-columns:84px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--hair)}
+.step .ph{font-family:"Inter";font-weight:900;font-size:22px;color:var(--acc);text-transform:uppercase}
+.step h4{font-size:16px;font-weight:800;margin-bottom:4px}
+.step p{font-size:14px}
+.step .tg{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+.risk{width:100%;border-collapse:collapse}
+.risk th,.risk td{border:1px solid var(--hair);padding:13px 14px;font-size:13.5px;vertical-align:top}
+.risk th{background:#F0EEE9}
+.lvl{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.lvl.hi{background:var(--acc);color:#fff}.lvl.md{border:1px solid var(--acc);color:var(--acc)}.lvl.lo{border:1px solid var(--hair);color:var(--muted)}
+.progress{display:flex;align-items:center;gap:16px;margin:20px 0 26px}
+.progress .ptrack{flex:1;height:10px;background:rgba(21,21,29,.08);position:relative}
+.progress .pfill{height:100%;background:var(--acc);width:0;transition:width .25s}
+.progress .pnum{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;white-space:nowrap}
+.chkgroup{margin-bottom:24px}
+.chkgroup>.gl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:700;border-bottom:2px solid var(--acc);padding-bottom:8px;margin-bottom:6px;display:inline-block}
+.chk{display:flex;gap:14px;align-items:flex-start;padding:13px 4px;border-bottom:1px solid var(--hair);cursor:pointer}
+.chk:hover{background:rgba(255,107,31,.04)}
+.chk .box{width:20px;height:20px;border:1.5px solid var(--ink);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff}
+.chk.on .box{background:var(--acc);border-color:var(--acc)}
+.chk .tx{font-size:14.5px}
+.chk.on .tx{color:var(--muted);text-decoration:line-through}
+.org{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--hair);margin-top:30px}
+@media(max-width:880px){.org{grid-template-columns:1fr 1fr}}
+.org .o{padding:22px;border-right:1px solid var(--hair)}
+.org .o:last-child{border-right:none}
+@media(max-width:880px){.org .o{border-bottom:1px solid var(--hair)}.org .o:nth-child(odd){border-right:1px solid var(--hair)}}
+.org .ol{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:700}
+.org .oe{font-weight:800;font-size:15.5px;margin:7px 0 5px}
+.org .od{font-size:12.5px;color:var(--muted);line-height:1.5}
+.note{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);border-left:2px solid var(--acc);padding:4px 0 4px 14px;margin-top:18px;line-height:1.65}
+.thesis{background:var(--acc);color:#fff;padding:30px 28px;clip-path:var(--clip-tr);margin-top:30px}
+.thesis .lab{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.9;margin-bottom:10px}
+.thesis .q{font-size:19px;font-weight:800;line-height:1.5}
+.opinion{border:2px solid var(--ink);padding:0;margin-top:8px}
+.opinion .oh{background:var(--ink);color:var(--bg);padding:16px 24px;font-family:"Inter";font-weight:900;text-transform:uppercase;font-size:18px}
+.opinion .ob{padding:26px 24px}
+.opinion .ob p{font-size:15px;margin-bottom:14px}
+.opinion .ob p:last-child{margin-bottom:0}
+.opinion .verdict{border-left:3px solid var(--acc);padding-left:16px;font-weight:700}
+.closing{background:var(--ink);color:var(--bg);border-bottom:none}
+.closing .wrap{padding:88px 28px}
+.closing h2{font-family:"Inter";font-weight:900;text-transform:uppercase;font-size:clamp(38px,7.5vw,100px);line-height:0.92}
+.closing h2 .ar{color:var(--acc)}
+.closing .cblock{background:var(--acc);color:#fff;padding:26px;clip-path:var(--clip);margin-top:40px;max-width:600px}
+.closing .cblock .lab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.closing .cblock p{font-size:15px;margin-top:8px}
+.foot{font-family:"JetBrains Mono",monospace;font-size:11px;color:rgba(245,244,240,.55);margin-top:44px;letter-spacing:.03em;line-height:1.8}
+.gwrap{margin-top:26px;border:1px solid var(--hair);overflow-x:auto;background:#FBFAF7}
+.gchart{min-width:720px}
+.grow{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--hair)}
+.grow:last-child{border-bottom:none}
+.grow.ghead .glabel{background:#F0EEE9;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.grow.ghead .mcell{background:#F0EEE9;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;min-height:34px}
+.glabel{padding:13px 14px;font-size:13px;font-weight:700;border-right:1px solid var(--hair);display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.glabel small{font-family:"JetBrains Mono",monospace;font-weight:400;font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.gtrack{position:relative;display:grid;grid-template-columns:repeat(6,1fr);min-height:48px}
+.gtrack .mcell{border-left:1px solid var(--hair);display:flex;align-items:center;justify-content:center}
+.gtrack .mcell:first-child{border-left:none}
+.gbar{position:absolute;top:14px;height:20px;background:var(--acc);color:#fff;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.02em;display:flex;align-items:center;padding:0 9px;white-space:nowrap;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 100%,6px 100%,0 calc(100% - 6px))}
+.gbar.ghost{background:rgba(21,21,29,.32)}
+.vidbar{display:block;padding:9px 24px;background:rgba(255,107,31,.08);border-top:1px solid var(--hair);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--acc);text-decoration:none;font-weight:700}
+.vidbar:hover{background:var(--acc);color:#fff}
+</style>
+</head>
+<body>
+
+<div class="docctrl"><div class="wrap"><span>SUNNY ENTERTAINMENT · CONFIDENTIAL</span><span class="l">STRATEGY REPORT · VER 2.1</span></div></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="mark"></span> 레트로 IP 리메이크 사업</div>
+    <nav class="nav">
+      <a href="#summary">결론요약</a><a href="#market">시장</a><a href="#osmu">OSMU</a><a href="#rights">판권지형</a><a href="#matrix">평가</a><a href="#top5">TOP 5</a><a href="#strategy">추천전략</a><a href="#cases">성공실패</a><a href="#deal">협의</a><a href="#pipeline">작업</a><a href="#schedule">스케줄</a><a href="#risk">리스크</a><a href="#checklist">체크</a><a href="#verdict">판단</a>
+    </nav>
+  </div>
+</div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="wrap">
+    <div class="kicker"><span class="n">REPORT / 01</span> &nbsp;·&nbsp; 일본 레트로 게임 IP 리메이크 공동제작 사업 전략</div>
+    <div class="cover-grid">
+      <div>
+        <h1 class="disp">RETRO IP<br>REMAKE<br>BUSINESS<span class="ar">↗</span></h1>
+        <div class="meta">
+          발행 · 써니엔터테인먼트 (SUNNY ENTERTAINMENT)<br>
+          크리에이티브 · 써니엔터테인먼트(총괄·기획·스토리·아트) + 넥스트아트(컨셉아트·캐릭터 개발·모델링)<br>
+          개발 · 코아소프트(한국) &nbsp;·&nbsp; 전세계 퍼블리싱 · MGM &nbsp;·&nbsp; IP·협력 · 일본 원작사<br>
+          후보 · 아이렘 / 자레코 / 타이토 카탈로그 · 검토 리스트 32종<br>
+          핵심 · 리메이크 사업 + 원소스 멀티유즈(OSMU) 확장
+        </div>
+      </div>
+      <div>
+        <div class="statcard"><span class="ar">↗</span><div class="v">$3.8B→8.5B</div><div class="l">레트로 콘솔 시장 · 2025→2033 · CAGR ~10%</div></div>
+        <div class="statcard"><span class="ar">↗</span><div class="v">$167B→269B</div><div class="l">캐릭터·라이선스 머천다이징 시장 · 2024→2031</div></div>
+        <div class="statcard"><span class="ar">↗</span><div class="v">~500K</div><div class="l">동일 구조 검증 사례 판매량 · Wonder Boy 리메이크</div></div>
+      </div>
+    </div>
+    <div class="premise">
+      <span class="t">본 보고서 전제</span>
+      <span class="d">① 검토 리스트 전 타이틀의 <b>리메이크 판권 확보 완료</b>를 전제로 한다. ② 모든 결과물은 <b>공동제작</b>을 기본 구조로 하며, 협의 대상은 신규 창작 자산의 저작권 귀속과 로열티 배분 조건이다.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 EXEC SUMMARY -->
+<section id="summary">
+  <div class="wrap">
+    <div class="kicker"><span class="n">02</span> · EXECUTIVE SUMMARY</div>
+    <h2 class="sec">결론 요약</h2>
+    <p class="lede">본 사업의 핵심은 검증된 일본 레트로 IP를 저비용으로 리메이크하여 시장에 진입하고, 이를 캐릭터 머천다이징·애니메이션으로 확장하는 <b>원소스 멀티유즈(OSMU) 사업</b>이다. 써니엔터테인먼트·넥스트아트가 보유한 기획·아트·캐릭터 역량이 이 사업의 가치사슬 핵심에 정확히 위치한다.</p>
+    <div class="org">
+      <div class="o"><div class="ol">CREATIVE</div><div class="oe">써니엔터테인먼트 + 넥스트아트</div><div class="od">총괄·기획·스토리·아트 (써니) · 컨셉아트·캐릭터 개발·모델링 (넥스트아트)</div></div>
+      <div class="o"><div class="ol">DEVELOPMENT</div><div class="oe">코아소프트 (한국)</div><div class="od">게임 개발</div></div>
+      <div class="o"><div class="ol">PUBLISHING</div><div class="oe">MGM</div><div class="od">전세계 퍼블리싱 · 일본 계약 기반</div></div>
+      <div class="o"><div class="ol">IP · COOPERATION</div><div class="oe">City Connection · 타이토</div><div class="od">자레코·아이렘 = City Connection(전세계 독점) · 타이토 = 별도</div></div>
+    </div>
+
+    <div class="grid3" style="margin-top:34px">
+      <div class="card"><span class="tag">결론 A · 사업 타당성</span><h3>구조가 검증되어 있다</h3><p>아트 전문 제작 + 개발·퍼블리싱 파트너 + 원작 IP의 공동제작 모델은 Wonder Boy 리메이크(약 50만 본)로 이미 검증된 공식이다. 시장 또한 구조적 성장 구간에 있다.</p></div>
+      <div class="card"><span class="tag">결론 B · 가치의 원천</span><h3>게임은 입구, OSMU가 본체다</h3><p>리메이크 게임 단독 수익은 수만~수십만 본 수준으로 상한이 존재한다. 진짜 가치는 게임을 엔진으로 한 <b>굿즈·애니메이션·라이선스 확장</b>에서 발생한다.</p></div>
+      <div class="card"><span class="tag">결론 C · 선정 기준</span><h3>인지도 + 캐릭터성을 동시에</h3><p>신규 IP가 아닌 리메이크의 본질적 이점은 <b>이미 확보된 인지도</b>다. 여기에 굿즈·애니로 확장 가능한 <b>강한 캐릭터성</b>이 더해진 타이틀이 최우선이다.</p></div>
+    </div>
+    <div class="thesis">
+      <div class="lab">핵심 명제</div>
+      <div class="q">"유명한 게임" ≠ "OSMU가 되는 게임". 우주선·기계가 주인공인 슈팅(예: R-Type)은 인지도가 높아도 굿즈·애니 확장이 어렵다.<br>반대로 <u>귀엽고 개성 있는 캐릭터</u>가 주인공인 타이틀이 본 사업의 최적 대상이다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 MARKET -->
+<section id="market">
+  <div class="wrap">
+    <div class="kicker"><span class="n">03</span> · MARKET</div>
+    <h2 class="sec">시장 분석</h2>
+    <p class="lede">두 개의 시장이 본 사업을 받친다. 리메이크 게임이 진입하는 <b>레트로 게임 시장</b>, 그리고 확장 단계가 진입하는 <b>캐릭터 라이선스·머천다이징 시장</b>이다. 후자가 전자보다 훨씬 크다는 점이 OSMU 전략의 근거다.</p>
+    <div class="statwide">
+      <div class="bigstat"><div class="v">~10%</div><div class="l">레트로 콘솔 세그먼트 CAGR · 전체 콘솔 3–5% 대비</div></div>
+      <div class="bigstat"><div class="v">~$167B</div><div class="l">캐릭터·라이선스 머천다이징 시장 규모 (2024)</div></div>
+      <div class="bigstat"><div class="v">~40%</div><div class="l">브랜드 라이선스 중 엔터·게임 IP 비중</div></div>
+      <div class="bigstat"><div class="v">47%</div><div class="l">아시아·태평양 콘솔 시장 점유 (2024)</div></div>
+    </div>
+    <div class="chart">
+      <div class="sub mono" style="margin-bottom:10px">시장 규모 비교 (USD) · 게임 진입시장 vs OSMU 확장시장</div>
+      <div class="bar-row"><div class="yr mono">레트로콘솔 '25</div><div class="bar-track"><div class="bar-fill" style="width:14.1%"></div></div><div class="val">$3.8B</div></div>
+      <div class="bar-row"><div class="yr mono">레트로콘솔 '33</div><div class="bar-track"><div class="bar-fill" style="width:31.6%"></div></div><div class="val">$8.5B</div></div>
+      <div class="bar-row"><div class="yr mono">캐릭터머천 '24</div><div class="bar-track"><div class="bar-fill ghost" style="width:62%"></div></div><div class="val">$167B</div></div>
+      <div class="bar-row"><div class="yr mono">캐릭터머천 '31</div><div class="bar-track"><div class="bar-fill ghost" style="width:100%"></div></div><div class="val">$269B</div></div>
+      <div class="legend">출처 종합: 복수 시장조사(2025–2026). <b>전략적 함의</b> — 게임 시장만 보면 규모가 작지만, 캐릭터 머천다이징 시장은 그 수십 배다. 리메이크는 이 거대한 시장으로 진입하는 <b>저비용 관문</b>이다. (수치는 방향성 근거로만 활용하고, 매출 추정은 실제 판매 사례 기반으로 보수적으로 산정한다.)</div>
+    </div>
+    <div class="note">유통은 콘솔·PC·스팀(글로벌 동시) 중심으로 설계한다. 삼성·LG 스마트TV 등은 본 사업의 핵심이 아니라, 캐주얼형 타이틀에 한해 활용 가능한 <b>부가 유통 경로</b>로만 둔다.</div>
+  </div>
+</section>
+
+<!-- 04 OSMU -->
+<section id="osmu">
+  <div class="wrap">
+    <div class="kicker"><span class="n">04</span> · ONE SOURCE MULTI USE</div>
+    <h2 class="sec">OSMU 전략</h2>
+    <p class="lede">본 사업의 설계도다. 리메이크 게임을 "엔진"으로, 굿즈·애니메이션·라이선스를 "수익 증폭기"로 둔다. 캐릭터 라이선스 업계는 이미 극장·스트리밍·게임·리테일을 묶는 다년 로드맵으로 운영되며, 단일 캐릭터 IP가 물리·디지털·경험 전 영역에서 수익을 창출하는 구조다.</p>
+    <div class="osmu-flow">
+      <div class="osmu-step"><span class="arr">→</span><div class="ph">STEP 01</div><h4>리메이크<br>게임</h4><p>저비용 진입 + 이미 확보된 인지도 활용. 신규 캐릭터·세계관을 게임에 이식해 OSMU 원천 자산을 생성한다.</p></div>
+      <div class="osmu-step"><span class="arr">→</span><div class="ph">STEP 02</div><h4>캐릭터<br>굿즈</h4><p>리메이크 과정에서 디자인한 캐릭터를 봉제·피규어·아트토이·문구로 전개. 굿즈모먼트 등 그룹 역량과 직결된다.</p></div>
+      <div class="osmu-step"><span class="arr">→</span><div class="ph">STEP 03</div><h4>애니메이션화</h4><p>신설 예정 애니 전문사 <b>써니툰</b>이 전담. 저비용 단편(유튜브 시리즈)으로 반응을 검증한 뒤 정규 시리즈로 확장해 게임·굿즈 인지도를 상호 증폭한다.</p></div>
+      <div class="osmu-step"><div class="ph">STEP 04</div><h4>라이선스<br>전시 · XR</h4><p>캐릭터 라이선스, 전시·테마 체험, XR 콘텐츠로 수익 다각화. 한 IP의 가치를 다층적으로 회수한다.</p></div>
+    </div>
+    <div class="grid2" style="margin-top:30px">
+      <div class="card"><span class="tag">왜 리메이크가 OSMU의 입구인가</span><h3>인지도를 사들이는 효과</h3><p>신규 IP는 인지도를 처음부터 구축해야 하며 수년의 시간과 막대한 마케팅비가 든다. 리메이크는 <b>이미 검증된 캐릭터·세계관·팬덤</b>을 저비용으로 확보해 OSMU 확장의 출발선을 앞당긴다.</p></div>
+      <div class="sideblock"><div class="lab">SUNNY ENT 생태계 정합성</div><h3>게임 → 굿즈 → 애니 일관 라인</h3><p>써니엔터테인먼트 그룹은 굿즈(굿즈모먼트), 캐릭터 IP, 전시·XR 자산을 이미 보유하며, 애니메이션은 신설 예정인 <b>써니툰</b>이 전담한다. 리메이크가 생성한 캐릭터는 굿즈모먼트(굿즈)·써니툰(애니)·전시/XR로 그룹 내부에서 즉시 순환될 수 있어, 외부 의존 없이 OSMU 전 단계를 자체 소화하는 구조적 강점이 있다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 RIGHTS LANDSCAPE -->
+<section id="rights">
+  <div class="wrap">
+    <div class="kicker"><span class="n">05</span> · IP RIGHTS LANDSCAPE · 참고</div>
+    <h2 class="sec">판권 지형</h2>
+    <p class="lede">본 보고서는 판권 확보 완료를 전제하지만, 권리 주체에 중대한 변화가 확인됐다. <b>City Connection이 자레코와 아이렘 라이브러리의 "전 세계 독점 권리 보유자"임을 2026년 4월 23일 공식 발표</b>하고, 게임·머천·크로스미디어 글로벌 라이선싱을 개방했다(Licensing Expo 2026 참가). 즉 본 후보 다수의 협상 상대가 <b>단일 회사 City Connection으로 수렴</b>한다 — 이는 기회이자 동시에 독점성 리스크다.</p>
+    <div class="vs" style="margin-top:30px">
+      <div class="col">
+        <h3>아이렘 계열</h3>
+        <div class="who">CITY CONNECTION (2026.04 라이선싱 개방)</div>
+        <ul>
+          <li>본 후보 다수가 속함: 쿵푸마스터·최후의 닌자·키드니키·비질란테·언더커버 콥스 등.</li>
+          <li>City Connection이 2026.04 "아이렘 컬렉션"으로 R-Type·Kung-Fu Master·Ninja Spirit 등을 글로벌 라이선싱 대상에 포함.</li>
+          <li>단, R-Type은 그란젤라가 시리즈를 전개해 온 이력 → 타이틀별 권리 범위·중복은 별도 확인 권장.</li>
+          <li>참고: 쿵푸마스터 일본명 "스파르탄X"는 영화 연계 → 영문명 사용 권장.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>자레코 계열</h3>
+        <div class="who">CITY CONNECTION (전세계 독점)</div>
+        <ul>
+          <li>2014년 자레코 전 IP 인수 → 2026.04 전 세계 독점 보유자로 글로벌 라이선싱 공식 개방.</li>
+          <li>본 후보: Rod-Land·닌자 자자마루·닌자 쿤·씨티커넥션·모모코 120% 등.</li>
+          <li><b>주의 — City Connection은 Rod-Land를 직접 재출시 중</b>(Arcade Archives·JALECOlle/Retro-Bit). 우리 리메이크가 자사 재출시와 충돌하지 않는지, <b>라이선스 독점성 조항</b>을 반드시 확인.</li>
+          <li>닌자 쿤 등 일부는 원개발사(UPL) 계보가 있어 권리 범위 확인 권장.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>타이토 계열</h3>
+        <div class="who">TAITO (현 스퀘어에닉스)</div>
+        <ul>
+          <li>레인보우 아일랜드 → 버블보블 세계관 계열의 타이토 원작.</li>
+          <li>Bub &amp; Bob 등 검증된 마스코트로 OSMU 잠재력 최상위권.</li>
+          <li>단, 타이토가 버블보블 라인을 현재도 활발히 전개 → 경쟁·신선도 변수 큼.</li>
+          <li>본 후보군(아이렘·자레코)과 권리 주체가 다르므로 별도 실사 필요.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="thesis">
+      <div class="lab">기회이자 리스크 · City Connection</div>
+      <div class="q"><b>기회</b> — 자레코·아이렘 후보 다수의 협상 상대가 City Connection 하나로 수렴해 권리 확보 경로가 단순해진다. City Connection은 지금 글로벌 파트너를 적극적으로 찾는 중이다(2026.04 Licensing Expo).<br><b>리스크</b> — City Connection은 같은 IP를 <u>직접 재출시·라이선싱하는 당사자</u>이기도 하다. 계약 단계에서 ① 우리 리메이크가 City Connection 자사 복각·재출시와 충돌하지 않는지 ② <u>독점성(타사 리메이크 불허) 조항</u> 유무 ③ 신규 창작 자산의 저작권을 우리가 보유할 수 있는지를 반드시 확정한다.</div>
+    </div>
+    <div class="note">핵심 구분 — <b>① 이식·복각권</b>(원본 그대로 출시) · <b>② 리마스터권</b>(해상도·편의 개선) · <b>③ 리메이크/리이매지닝권</b>(신규 아트·자산으로 재창조). 써니엔터테인먼트의 아트 역량과 OSMU 가치는 ③에서 발생하며, 신규 창작 자산의 저작권 귀속이 사업의 장기 가치를 좌우한다. City Connection이 보유한 것은 주로 ①②의 재출시 권리이므로, ③ 리메이크권을 독점적으로 확보하는 것이 협상의 핵심이다.</div>
+  </div>
+</section>
+
+<!-- 06 MATRIX -->
+<section id="matrix">
+  <div class="wrap">
+    <div class="kicker"><span class="n">06</span> · TITLE EVALUATION MATRIX · 인터랙티브</div>
+    <h2 class="sec">전체 타이틀 평가</h2>
+    <p class="lede">검토 리스트 전 종을 두 점수로 평가했다. <b>OSMU 잠재력</b>(캐릭터·아트·애니 등 본질 매력)과 <b>선점가치</b>(잠재력 × 신선도 배율 — 이미 리메이크가 많을수록 급감). 추천 순위는 <b>선점가치 기준</b>이며 그 순으로 정렬되어 있다. 헤더 클릭 시 재정렬, 버튼으로 원작사 필터. ★ = TOP 5 · ※ = 잠재력은 높지만 이미 리메이크 多(선점가치 낮음).</p>
+    <div class="controls">
+      <button class="fbtn active" data-f="all">전체</button>
+      <button class="fbtn" data-f="IREM">아이렘</button>
+      <button class="fbtn" data-f="JALECO">자레코</button>
+      <button class="fbtn" data-f="TAITO">타이토</button>
+      <button class="fbtn" data-f="PICK">TOP 5</button>
+    </div>
+    <div class="tablewrap">
+      <table id="mtx">
+        <thead>
+          <tr>
+            <th data-k="ko">타이틀 ▲▼</th><th data-k="holder">원작 ▲▼</th><th data-k="genre">장르 ▲▼</th>
+            <th class="num" data-k="rec">인지도</th><th class="num" data-k="char">캐릭터·머천</th><th class="num" data-k="anime">애니화</th><th class="num" data-k="art">아트가치</th><th class="num" data-k="econ">개발경제성</th><th class="num" data-k="genrefit">장르성</th><th class="num" data-k="fresh">신선도</th><th data-k="hist">기존 이력</th>
+            <th class="num" data-k="pot">잠재력</th><th class="num" data-k="total">선점가치 ▲▼</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <b>OSMU 잠재력</b> = 인지도(×1.1)·캐릭터머천(×1.5)·애니화(×1.3)·아트가치(×1.0)·개발경제성(×1.2)·장르성(×0.9)의 가중합을 100점 환산. 신선도는 제외한 "본질 매력"이다.<br>
+      <b>선점가치(추천점수)</b> = 잠재력 × <b>신선도 배율</b>. 배율은 신선도 5→1.0 · 4→0.9 · 3→0.75 · 2→0.6 · 1→0.45. <b>이미 리메이크가 많을수록(신선도↓) 잠재력이 아무리 높아도 선점가치가 급락</b>한다.<br>
+      <b>기존 이력</b> 열 = 실제 리메이크·애니 여부(✕=없음=미개척). 예: 레인보우 아일랜드는 잠재력 최상위지만 리메이크 다수로 선점가치는 하위권으로 떨어진다 — 이것이 리메이크 이력을 순위에 반영한 결과다.
+    </div>
+  </div>
+</section>
+
+<!-- 07 TOP 5 -->
+<section id="top5">
+  <div class="wrap">
+    <div class="kicker"><span class="n">07</span> · TOP 5 RECOMMENDATION · 상세</div>
+    <h2 class="sec">TOP 5 추천</h2>
+    <p class="lede">선점가치(잠재력 × 신선도 배율) 상위 5종을 선정한다. 각 카드의 점수는 "잠재력 / 선점"으로 표기한다. 유명하지만 이미 리메이크가 많은 IP가 왜 빠졌는지는 하단 "잠재력↑ 선점가치↓" 묶음에서 설명한다.</p>
+
+    <div class="t5">
+      <div class="head"><span class="rk">1</span><span class="nm">Rod-Land<small>로드랜드 · 자레코 원작 · 큐트 플랫포머</small></span><span class="scorebadge">잠재력 91 · 선점 <b>91</b></span></div>
+      <a class="vidbar" href="https://www.youtube.com/watch?v=UsVPnXePPMs" target="_blank" rel="noopener">▶ 원작 게임플레이 영상 · Rod-Land (YouTube) ↗</a>
+      <div class="body">
+        <div class="cell"><div class="cl">장점</div><p>요정 자매 주인공의 압도적 귀여움과 동화풍 세계관. 봉제·피규어·문구 등 굿즈 전 영역과 키즈·가족 애니메이션화에 최적. 단순 2D 구조로 개발비가 가장 낮다. 유럽 컬트 팬덤(아미가 세대)을 보유한다.</p></div>
+        <div class="cell"><div class="cl">단점</div><p>글로벌 인지도는 중간 수준이며 특히 북미·아시아 인지도가 낮다. 단독 브랜드 파워가 약해 캐릭터 매력을 전면에 내세운 마케팅이 필요하다.</p></div>
+        <div class="cell"><div class="cl">공략 방법</div><p>키즈·가족 시장과 유럽 노스탤지어를 동시 공략. "가장 귀여운 레트로 리메이크" 포지셔닝으로 콘솔·PC와 캐주얼 채널을 폭넓게 커버한다.</p></div>
+        <div class="cell"><div class="cl">리메이크 방향</div><p>수채·파스텔 톤 손그림으로 전면 리메이크. 두 자매(Tam·Rit)의 캐릭터성과 2인 협동을 강화하고 신규 스테이지·QoL을 추가한다.</p></div>
+        <div class="cell full"><div class="cl">OSMU 확장</div><p>봉제·아크릴·문구 1차 → 저비용 키즈 애니 단편으로 검증 후 정규 시리즈 → 캐릭터 라이선스. 굿즈모먼트와 직결되는 가장 확장성 높은 후보로 1순위 권장. <b>기존 이력</b> — 복각·재발매(아케이드 아카이브·Retro-Bit)만 존재, 공식 풀리메이크·애니 전무. 미개척 IP로 선점 가치 최상.</p></div>
+      </div>
+    </div>
+
+    <div class="t5">
+      <div class="head"><span class="rk">2</span><span class="nm">Liquid Kids<small>미즈바쿠 대모험 · 타이토 원작 · 큐트 플랫포머</small></span><span class="scorebadge">잠재력 88 · 선점 <b>88</b></span></div>
+      <a class="vidbar" href="https://www.youtube.com/watch?v=sKU1FuVCgiM&amp;t=108s" target="_blank" rel="noopener">▶ 원작 게임플레이 영상 · Liquid Kids (YouTube) ↗</a>
+      <div class="body">
+        <div class="cell"><div class="cl">장점</div><p>물풍선을 던지는 파란 오리너구리 <b>Hipopo</b>의 독보적 귀여움과 명확한 단일 마스코트. 2D 단순 구조로 개발비가 낮다. 타이토 컬렉션 외 모던 리메이크가 전무한 완전 미개척 IP라 선점 가치가 최상위권.</p></div>
+        <div class="cell"><div class="cl">단점</div><p>글로벌 인지도가 낮은 컬트작. 단독 브랜드 파워가 약해 캐릭터 매력을 전면에 내세운 마케팅이 필요하다.</p></div>
+        <div class="cell"><div class="cl">공략 방법</div><p>"가장 귀여운 물놀이 액션" 키즈·가족 포지셔닝. Hipopo 캐릭터를 전면에 세워 굿즈·애니로 직결한다.</p></div>
+        <div class="cell"><div class="cl">리메이크 방향</div><p>말랑한 파스텔 손그림, 물·거품 이펙트 현대화. 2인 협동·신규 스테이지·QoL 추가.</p></div>
+        <div class="cell full"><div class="cl">OSMU 확장</div><p>Hipopo 봉제·아크릴·문구 → 저비용 키즈 애니 단편(써니툰) → 라이선스. <b>기존 이력</b> — 타이토 컬렉션 수록뿐, 리메이크·애니 전무. 완전 백지의 귀여운 마스코트 IP.</p></div>
+      </div>
+    </div>
+
+    <div class="t5">
+      <div class="head"><span class="rk">3</span><span class="nm">키드니키<small>Kid Niki: Radical Ninja · 아이렘 원작 · 닌자 플랫포머</small></span><span class="scorebadge">잠재력 85 · 선점 <b>85</b></span></div>
+      <a class="vidbar" href="https://www.youtube.com/watch?v=BQFsBfOawtM" target="_blank" rel="noopener">▶ 원작 게임플레이 영상 · Kid Niki (YouTube) ↗</a>
+      <div class="body">
+        <div class="cell"><div class="cl">장점</div><p>붉은 스파이크 헤어의 펑크 닌자라는 강렬한 캐릭터성. 스티커·의류·스트리트웨어 콜라보 친화, 북미 NES 세대 인지도 보유. 2D 플랫포머로 저비용 제작 가능.</p></div>
+        <div class="cell"><div class="cl">단점</div><p>인지도 중간 수준, 원작 서사가 약해 캐릭터 스토리 보강 필요.</p></div>
+        <div class="cell"><div class="cl">공략 방법</div><p>"80s 레트로 쿨" + 스트리트 컬처(의류·스니커 콜라보)로 키덜트 시장 공략.</p></div>
+        <div class="cell"><div class="cl">리메이크 방향</div><p>네온·코믹북 스타일 아트로 재해석. 보스전·닌자 액션 손맛 강화, 캐릭터 서사 부여.</p></div>
+        <div class="cell full"><div class="cl">OSMU 확장</div><p>스트리트웨어·아트토이·스티커 → 스타일리시 애니 단편/MV → 패션 라이선스 콜라보. 럭셔리·스트리트 캐릭터 콜라보 트렌드와 정합. <b>기존 이력</b> — 원작 후속작(80년대)만 존재, 모던 리메이크·애니 전무.</p></div>
+      </div>
+    </div>
+
+    <div class="t5">
+      <div class="head"><span class="rk">4</span><span class="nm">쿵푸마스터<small>Kung-Fu Master · 아이렘 원작 · 벨트스크롤 (영문명 사용)</small></span><span class="scorebadge">잠재력 81 · 선점 <b>81</b></span></div>
+      <a class="vidbar" href="https://www.youtube.com/watch?v=sx9ive1tFPM" target="_blank" rel="noopener">▶ 원작 게임플레이 영상 · Kung-Fu Master (YouTube) ↗</a>
+      <div class="body">
+        <div class="cell"><div class="cl">장점</div><p>검토 리스트 중 최고의 글로벌 인지도. "세계 최초의 벨트스크롤이자 스트리트파이터 창시자(니시야마 다카시)의 작품"이라는 강력한 마케팅 서사. 벨트스크롤 장르 현재 호황.</p></div>
+        <div class="cell"><div class="cl">단점</div><p>주인공(Thomas)의 마스코트성이 약해 머천다이징이 게임·장르 중심으로 제한. 일본명 "스파르탄X"는 영화 연계 → <b>영문명 Kung-Fu Master로 진행</b>.</p></div>
+        <div class="cell"><div class="cl">공략 방법</div><p>"오리지널 벨트스크롤의 귀환" 헤리티지 마케팅으로 글로벌 프리미엄 진입. 인지도 레버리지로 진입장벽 최소화.</p></div>
+        <div class="cell"><div class="cl">리메이크 방향</div><p>정통 벨트스크롤 리이매지닝(SoR4 방식). 신규 캐릭터·스테이지로 세계관을 확장해 머천다이징 가능한 캐릭터 신설.</p></div>
+        <div class="cell full"><div class="cl">OSMU 확장</div><p>액션 피규어·아트북 → 무술 액션 애니(신설 캐릭터·악역 중심으로 굿즈 기반 마련). 인지도 자체가 가장 큰 자산인 "확실한 시장 진입" 후보. <b>기존 이력</b> — 역사적 후속작(비질란테 등)만, 모던 풀리메이크·애니 전무.</p></div>
+      </div>
+    </div>
+
+    <div class="t5">
+      <div class="head"><span class="rk">5</span><span class="nm">Don Doko Don<small>돈 도코 돈 · 타이토 원작 · 큐트 플랫포머</small></span><span class="scorebadge">잠재력 81 · 선점 <b>81</b></span></div>
+      <a class="vidbar" href="https://www.youtube.com/watch?v=ttOqXyGSnwA" target="_blank" rel="noopener">▶ 원작 게임플레이 영상 · Don Doko Don (YouTube) ↗</a>
+      <div class="body">
+        <div class="cell"><div class="cl">장점</div><p>망치를 든 난쟁이 콤비 <b>Bob &amp; Jim</b>의 동화풍 2인 협동(Rod-Land와 유사한 강점). 명확한 콤비 캐릭터, 2D 저비용. 컬렉션 외 모던 리메이크 전무한 미개척 IP.</p></div>
+        <div class="cell"><div class="cl">단점</div><p>글로벌 인지도가 낮은 컬트작. 캐릭터 매력 중심 마케팅이 필요하다.</p></div>
+        <div class="cell"><div class="cl">공략 방법</div><p>2인 협동·가족 파티 게임 포지셔닝. 콤비 캐릭터의 코믹 케미를 굿즈·애니로 직결한다.</p></div>
+        <div class="cell"><div class="cl">리메이크 방향</div><p>동화 그림책풍 아트, 협동 플레이 강화, 신규 보스·스테이지·QoL 추가.</p></div>
+        <div class="cell full"><div class="cl">OSMU 확장</div><p>콤비 캐릭터 굿즈·완구 → 코믹 키즈 애니(써니툰) → 라이선스. <b>기존 이력</b> — 타이토 컬렉션 수록뿐, 리메이크·애니 전무.</p></div>
+      </div>
+    </div>
+
+    <div class="flagbox">
+      <div class="fh"><span class="nm">잠재력 최상위 · 선점가치 하락<small>이미 리메이크가 많거나 권리사가 활발히 전개 중 → 추천 제외</small></span><span class="scorebadge">선점 <b>↓</b></span></div>
+      <div class="fb">
+        <p>아래 IP들은 캐릭터·머천·애니 <b>잠재력은 TOP급</b>이지만, 이미 리메이크가 다수 존재하거나 권리사가 현재도 활발히 전개 중이라 <b>선점가치가 크게 떨어진다.</b> "유명한 게임"이 곧 "지금 만들 게임"은 아니라는 점을 그대로 보여준다 — 신선도 배율을 적용한 결과다.</p>
+        <p>· <b>버블보블</b> 잠재력 97 / 선점 <b>44</b> — 현재도 활발한 프랜차이즈<br>
+        · <b>레인보우 아일랜드</b> 잠재력 94 / 선점 <b>42</b> — Evolution'07·Towering'09 등 리메이크 다수<br>
+        · <b>NewZealand Story</b> 잠재력 91 / 선점 <b>41</b> — 2026 리메이크(Untold) 막 출시<br>
+        · <b>닌자 자자마루</b> 잠재력 88 / 선점 <b>66</b> — 권리사(시티커넥션) 신작·컬렉션 전개 중<br>
+        · <b>KiKi KaiKai (Pocky &amp; Rocky)</b> 잠재력 85 / 선점 <b>51</b> — Reshrined'22 부활 + 나츠메 라이선스</p>
+        <p style="margin-top:6px"><b>레인보우 아일랜드가 더 이상 2위가 아닌 이유가 바로 이것이다</b> — 잠재력만 보면 94로 최상위였지만, 이미 여러 번 리메이크되어 신선도 배율(×0.45)이 적용되며 선점가치 42로 하위권에 위치한다.</p>
+      </div>
+    </div>
+
+    <div class="altrow">
+      <span class="altchip">유력 대안 · <b>해머보이</b> (선점 80) — 코믹 마스코트 겐상</span>
+      <span class="altchip">유력 대안 · <b>닌자 베이스볼</b> (선점 80) — 컬트·강렬 아트</span>
+      <span class="altchip">유력 대안 · <b>최후의 닌자</b> (선점 79) — 아트 가치 최상</span>
+      <span class="altchip">유력 대안 · <b>Fairyland Story</b> (선점 79) — 꼬마 마녀, 미개척</span>
+      <span class="altchip">캐주얼·퍼즐 · <b>미궁도/Kickle</b> (75) · <b>Chack'n Pop</b> (71)</span>
+    </div>
+  </div>
+</section>
+
+<!-- 08 RECOMMENDED STRATEGY -->
+<section id="strategy">
+  <div class="wrap">
+    <div class="kicker"><span class="n">08</span> · RECOMMENDED STRATEGY</div>
+    <h2 class="sec">추천 전략</h2>
+    <p class="lede">개별 타이틀 평가를 사업 실행 관점에서 종합한 권장 전략이다. 핵심은 단계적 전개와 포트폴리오 구성이다.</p>
+
+    <div class="grid2" style="margin-top:30px">
+      <div class="sideblock">
+        <div class="lab">1·2순위 선정 권장</div>
+        <h3>큐트 IP + 인지도 IP 병행</h3>
+        <p><b>1순위 — Rod-Land</b>: 개발비 최저, 굿즈·애니 확장성 최상, 굿즈모먼트 정합, 유럽 컬트 인지도. 선점가치 1위로 첫 플래그십에 최적.<br><br><b>2순위 — Liquid Kids</b>: 오리너구리 Hipopo의 독보적 귀여움 + 완전 미개척. 타이토 카탈로그 중 선점가치 최고.<br><br>인지도 레버리지가 필요하면 <b>쿵푸마스터</b>를 글로벌 진입 카드로 병행 검토.</p>
+      </div>
+      <div class="card">
+        <span class="tag">포트폴리오 원칙</span>
+        <h3>한 타이틀 올인 금지</h3>
+        <p>수익 구조의 무게중심을 게임 단독이 아닌 <b>OSMU 확장</b>에 둔다. 캐릭터성이 강한 큐트 IP(확장 동력)와 인지도가 강한 IP(진입 추진력)를 조합해 리스크를 분산한다. 신규 창작 캐릭터를 자체 IP 자산으로 축적해 장기 가치를 확보한다.</p>
+      </div>
+    </div>
+
+    <h3 class="disp" style="font-size:22px;margin:42px 0 8px">단계적 전개 로드맵</h3>
+    <div class="steps">
+      <div class="step"><div class="ph">PHASE 1</div><div><h4>플래그십 리메이크 + 버티컬 슬라이스</h4><p>1순위 타이틀(Rod-Land 권장)을 풀 아트 리메이크로 착수하고, 1스테이지 완성본으로 시장·투자·협상력을 선검증한다. 캐릭터는 굿즈·애니 확장을 전제로 설계한다.</p><div class="tg">OUTPUT · 플레이어블 데모 · 캐릭터 자산 세트</div></div></div>
+      <div class="step"><div class="ph">PHASE 2</div><div><h4>출시 + OSMU 1차 가동</h4><p>글로벌 동시 출시와 함께 굿즈(굿즈모먼트) 라인과 저비용 단편 애니로 OSMU를 가동, 캐릭터 인지도와 게임 판매를 상호 증폭한다.</p><div class="tg">OUTPUT · 굿즈 라인 · 애니 단편 · 라이선스 문의 대응</div></div></div>
+      <div class="step"><div class="ph">PHASE 3</div><div><h4>2차 타이틀 + 정규 확장</h4><p>1차 성과를 바탕으로 2순위 타이틀에 착수하고, 반응이 검증된 IP는 정규 애니 시리즈·라이선스·전시/XR로 확장한다.</p><div class="tg">OUTPUT · 2차 타이틀 · 정규 애니 · 라이선스 사업</div></div></div>
+    </div>
+    <div class="note">스코프 권장 — 원작 손맛을 보존하는 <b>풀 아트 리메이크</b> 또는 세계관을 확장하는 <b>리이매지닝</b>. 단순 복각·이식은 가치증대·확장성이 낮아 본 사업의 지향점이 아니다.</div>
+  </div>
+</section>
+
+<!-- 09 CASES -->
+<section id="cases">
+  <div class="wrap">
+    <div class="kicker"><span class="n">09</span> · SUCCESS &amp; FAILURE CASES</div>
+    <h2 class="sec">성공·실패 사례</h2>
+    <p class="lede">본 사업의 방향성을 검증하는 거울. 성공 사례는 지향점을, 실패 패턴은 회피 지점을 제시한다.</p>
+
+    <div class="grid3" style="margin-top:30px">
+      <div class="card" style="border-color:var(--acc);border-width:2px">
+        <span class="tag" style="color:var(--acc)">성공 · 동일 구조 벤치마크</span>
+        <h3>Wonder Boy: The Dragon's Trap</h3>
+        <p>1989년 게임을 아트 전문 스튜디오가 전면 리메이크, 전문 퍼블리셔가 출시, 원작 IP가 결합한 공동제작 모델. 2019년까지 약 <b>50만 본</b>, 평단 호평. "구·신 그래픽 토글"이 상징적 마케팅 후크가 됐다.</p>
+        <div class="note" style="margin-top:14px">→ 써니엔터테인먼트 구조와 동일. <b>충실한 게임플레이 + 압도적 신규 아트 + 토글 기능</b>이 핵심.</div>
+      </div>
+      <div class="card">
+        <span class="tag">성공 · 장르 부활</span>
+        <h3>Streets of Rage 4 · TMNT</h3>
+        <p>벨트스크롤 장르의 현세대 부활을 입증. 쿵푸마스터·비질란테류 액션의 현재 시장성을 뒷받침한다.</p>
+        <div class="note" style="margin-top:14px">→ 경쟁이 붐비는 장르이므로 차별화된 아트·세계관이 필수.</div>
+      </div>
+      <div class="card">
+        <span class="tag">성공 · OSMU 모델</span>
+        <h3>캐릭터 IP 라이선스 구조</h3>
+        <p>업계는 게임·굿즈·애니·리테일을 묶는 다년 로드맵으로 운영되며, 단일 캐릭터가 물리·디지털·경험 전 영역에서 수익을 낸다.</p>
+        <div class="note" style="margin-top:14px">→ 본 사업의 OSMU 설계가 업계 표준 전략과 정합.</div>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:18px">
+      <div class="card">
+        <span class="tag">실패 패턴 A · 저가 복각</span>
+        <h3>가치증대 없는 컬렉션</h3>
+        <p>원본을 그대로 묶은 에뮬레이션·복각 컬렉션은 안전하지만 신규 아트·캐릭터가 없어 <b>OSMU 확장 동력이 없다</b>. 마진·차별화 모두 낮다.</p>
+        <div class="note" style="margin-top:14px">→ 우리 모델의 지향점이 아니다. 반드시 ③ 리메이크/리이매지닝으로 갈 것.</div>
+      </div>
+      <div class="card">
+        <span class="tag">실패 패턴 B · 과도한 변경</span>
+        <h3>원작 정체성 훼손</h3>
+        <p>원작에서 과도하게 이탈한 리메이크는 핵심 팬층의 인지도·신뢰를 잃어, 리메이크의 본질적 이점(기존 팬덤)을 스스로 버린다.</p>
+        <div class="note" style="margin-top:14px">→ 손맛·핵심 정체성 보존 + 아트·편의 현대화의 균형(구·신 토글이 안전판).</div>
+      </div>
+      <div class="card">
+        <span class="tag">실패 패턴 C · 니치 장르</span>
+        <h3>캐릭터 없는 하드코어</h3>
+        <p>하드코어 슈팅 등 니치 장르 단독 리메이크는 도달 범위가 제한적이고 캐릭터·확장성이 부족하다(예: 우주선 주인공).</p>
+        <div class="note" style="margin-top:14px">→ OSMU 관점에서 인지도가 높아도 후순위. 캐릭터 중심 타이틀 우선.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 DEAL -->
+<section id="deal">
+  <div class="wrap">
+    <div class="kicker"><span class="n">10</span> · CO-PRODUCTION TERMS</div>
+    <h2 class="sec">공동제작 협의 핵심</h2>
+    <p class="lede">공동제작을 기본 구조로 하되, 사업의 장기 가치를 좌우하는 협의 대상은 다음 세 가지다. 특히 OSMU 확장 수익은 <b>신규 창작 자산의 저작권 귀속</b>에서 결정된다.</p>
+    <div class="dealgrid">
+      <div class="d"><div class="num">01 · 저작권 귀속</div><h4>신규 창작 자산의 권리</h4><p>써니엔터테인먼트·넥스트아트가 새로 창작한 캐릭터·아트·세계관·디자인의 저작권을 <b>공동 또는 써니엔터테인먼트(넥스트아트 포함) 귀속</b>으로 확보한다. 굿즈·애니 확장 수익의 법적 근거다.</p></div>
+      <div class="d"><div class="num">02 · 로열티 배분</div><h4>매출 배분 조건</h4><p>게임 매출 및 2차 사업(굿즈·애니·라이선스) 매출의 <b>로열티 배분율</b>을 단계별로 명문화한다. 기여도(아트·기획 비중)에 상응하는 구조를 협의한다.</p></div>
+      <div class="d"><div class="num">03 · 2차 사업 권리</div><h4>머천·애니·권역</h4><p>신규 자산 기반의 <b>머천다이징·애니메이션화 권리</b> 및 한국·아시아 권역 사업 권리의 귀속·우선권을 합의한다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 PIPELINE -->
+<section id="pipeline">
+  <div class="wrap">
+    <div class="kicker"><span class="n">11</span> · PRODUCTION METHOD</div>
+    <h2 class="sec">작업 방식</h2>
+    <p class="lede">크리에이티브(써니엔터테인먼트·넥스트아트) ↔ 개발(코아소프트) 공동제작은 "아트 바이블"과 "버티컬 슬라이스"로 리스크를 앞단에서 통제하며, 처음부터 OSMU를 염두에 둔 캐릭터 설계를 전제로 한다.</p>
+    <div class="steps">
+      <div class="step"><div class="ph">01</div><div><h4>프리프로덕션 · 아트 바이블</h4><p>원작 분석 후 아트 디렉션을 확정한다. 이때 <b>굿즈·애니 확장을 전제로 캐릭터를 설계</b>(명확한 실루엣·표정·턴어라운드)해 OSMU 자산을 사전 확보한다.</p><div class="tg">DELIVERABLE · 컨셉아트 · 캐릭터 시트 · 스타일 가이드</div></div></div>
+      <div class="step"><div class="ph">02</div><div><h4>버티컬 슬라이스 (1스테이지 완성본)</h4><p>1개 스테이지를 출시 품질로 선제작한다. 투자·계약·퍼블리싱 협상의 가장 강력한 근거이자 시장 반응 조기 검증 수단이다.</p><div class="tg">DELIVERABLE · 플레이어블 데모 · 트레일러</div></div></div>
+      <div class="step"><div class="ph">03</div><div><h4>충실한 게임플레이 + 모던 QoL + 토글</h4><p>원작 손맛을 보존하되 세이브·난이도·해상도 등 현대적 편의를 추가한다. 구·신 그래픽 토글을 마케팅 후크로 채택한다.</p><div class="tg">FEATURE · 그래픽/사운드 토글 · 신규 캐릭터 옵션</div></div></div>
+      <div class="step"><div class="ph">04</div><div><h4>음악 라이선스 · 원작 작곡가 리믹스</h4><p>원곡 권리 범위를 확인하고, 가능하면 원작 작곡가 협업 리믹스로 팬 신뢰와 홍보 효과를 확보한다.</p><div class="tg">CHECK · OST 권리 · 리믹스</div></div></div>
+      <div class="step"><div class="ph">05</div><div><h4>공동제작 운영 · 출시 · OSMU 연계</h4><p>주간 동기화(크리에이티브=써니·넥스트아트 / 개발=코아소프트)·버전관리·QA·로컬라이제이션을 합의하고, 퍼블리셔(MGM)·일본 원작사와 출시 일정을 조율한다. 글로벌 동시 출시와 동시에 굿즈·애니 라인을 가동한다.</p><div class="tg">CADENCE · 주간 빌드 · 글로벌 동시 출시 · 굿즈 연계</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 SCHEDULE -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="kicker"><span class="n">12</span> · PRODUCTION SCHEDULE · Rod-Land 기준</div>
+    <h2 class="sec">작업 공정 · 6개월 스케줄</h2>
+    <p class="lede">1순위 Rod-Land를 기준으로 한 풀 아트 리메이크 출시 공정이다. 목표는 "최대한 빠르게, 최대 6개월"이며 끝점은 글로벌 출시다. 써니엔터(기획·디렉션) · 넥스트아트(아트·캐릭터·모델링) · 코아소프트(개발)가 병렬로 진행한다.</p>
+
+    <div class="grid3" style="margin-top:28px">
+      <div class="card"><span class="tag">써니엔터테인먼트</span><h3>총괄·기획·디렉션</h3><p>전체 기획·스토리·아트 디렉션. M1 집중(아트바이블 확정) 후 전 공정 디렉션·OSMU 설계·퍼블리싱 조율.</p></div>
+      <div class="card"><span class="tag">넥스트아트</span><h3>아트·캐릭터·모델링</h3><p>컨셉아트→캐릭터 시트→모델링/스프라이트. M1~M3 아트 프로덕션 핵심. 굿즈·애니 확장을 전제로 캐릭터 설계.</p></div>
+      <div class="card"><span class="tag">코아소프트</span><h3>게임 개발</h3><p>엔진·게임플레이·스테이지·QoL·플랫폼 빌드. M1~M5 개발 핵심, M2 버티컬 슬라이스 선완성.</p></div>
+    </div>
+
+    <div class="gwrap">
+      <div class="gchart">
+        <div class="grow ghead">
+          <div class="glabel">워크스트림 / 월</div>
+          <div class="gtrack"><div class="mcell">M1</div><div class="mcell">M2</div><div class="mcell">M3</div><div class="mcell">M4</div><div class="mcell">M5</div><div class="mcell">M6</div></div>
+        </div>
+        <div class="grow">
+          <div class="glabel">기획·프리프로 <small>써니</small></div>
+          <div class="gtrack"><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div>
+            <div class="gbar" style="left:0;width:16.66%">기획·아트바이블</div></div>
+        </div>
+        <div class="grow">
+          <div class="glabel">컨셉·캐릭터·모델링 <small>넥스트아트</small></div>
+          <div class="gtrack"><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div>
+            <div class="gbar" style="left:0;width:50%">아트 프로덕션 (전 스테이지)</div></div>
+        </div>
+        <div class="grow">
+          <div class="glabel">개발·게임플레이 <small>코아소프트</small></div>
+          <div class="gtrack"><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div>
+            <div class="gbar" style="left:0;width:83.33%">엔진·플레이·스테이지 구현</div></div>
+        </div>
+        <div class="grow">
+          <div class="glabel">오디오·음악</div>
+          <div class="gtrack"><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div>
+            <div class="gbar" style="left:33.33%;width:33.34%">BGM·SFX (원작 리믹스)</div></div>
+        </div>
+        <div class="grow">
+          <div class="glabel">통합·QA·로컬라이즈</div>
+          <div class="gtrack"><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div>
+            <div class="gbar" style="left:50%;width:50%">통합·버그픽스·다국어</div></div>
+        </div>
+        <div class="grow">
+          <div class="glabel">퍼블리싱·심의·마케팅 <small>MGM</small></div>
+          <div class="gtrack"><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div>
+            <div class="gbar" style="left:50%;width:50%">스토어·심의·글로벌 마케팅</div></div>
+        </div>
+        <div class="grow">
+          <div class="glabel">OSMU 준비 <small>굿즈모먼트·써니툰</small></div>
+          <div class="gtrack"><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div><div class="mcell"></div>
+            <div class="gbar ghost" style="left:66.66%;width:33.34%">굿즈·애니 단편 착수</div></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="disp" style="font-size:22px;margin:40px 0 8px">월별 마일스톤</h3>
+    <div class="steps">
+      <div class="step"><div class="ph">M1</div><div><h4>기획·아트바이블 확정 → 버티컬 슬라이스 착수</h4><p>아트 디렉션·캐릭터 시트·기술 사양 확정. 1스테이지 선제작 시작.</p><div class="tg">GATE · 아트바이블 · 캐릭터 시트 · 기술 사양</div></div></div>
+      <div class="step"><div class="ph">M2</div><div><h4>버티컬 슬라이스(1스테이지 데모) 완성</h4><p>출시 품질 데모 확보 → 투자·MGM 퍼블리싱 협상의 핵심 근거. 가장 중요한 조기 검증 게이트.</p><div class="tg">GATE · 플레이어블 데모 · 트레일러</div></div></div>
+      <div class="step"><div class="ph">M3</div><div><h4>전 스테이지 아트 1차 완료 · 알파</h4><p>넥스트아트 아트 프로덕션 마무리, 전 스테이지 플레이 가능(알파).</p><div class="tg">GATE · 알파 빌드 · 아트 락 1차</div></div></div>
+      <div class="step"><div class="ph">M4</div><div><h4>베타 · 오디오 통합 · 심의·스토어 제출</h4><p>전 콘텐츠 통합 플레이(베타). MGM이 스토어 등록·연령 심의·마케팅 착수.</p><div class="tg">GATE · 베타 빌드 · 심의 제출</div></div></div>
+      <div class="step"><div class="ph">M5</div><div><h4>콘텐츠 락 · QA · 로컬라이제이션 완료</h4><p>버그픽스·밸런싱·다국어 마감. OSMU(굿즈·써니툰 단편) 병행 착수.</p><div class="tg">GATE · 콘텐츠 락 · RC 빌드</div></div></div>
+      <div class="step"><div class="ph">M6</div><div><h4>글로벌 동시 출시 + OSMU 1차 가동</h4><p>콘솔·PC·스팀 동시 출시. 굿즈 라인·써니툰 단편으로 캐릭터·게임 인지도 상호 증폭.</p><div class="tg">LAUNCH · 글로벌 출시 · OSMU 1차</div></div></div>
+    </div>
+
+    <div class="thesis">
+      <div class="lab">일정 리스크 · 솔직한 단서</div>
+      <div class="q">6개월 풀 아트 리메이크 출시는 공격적인 일정이다. 완화 장치를 함께 둔다 — ① <u>버티컬 슬라이스를 M2에 배치</u>해 조기에 품질·일정을 검증하고, ② 스테이지 수 등 <u>스코프를 가변 관리</u>하며, ③ 일정 지연 시 M6을 "정식 출시" 대신 "얼리 액세스·데모 공개"로 전환할 수 있게 설계한다.</div>
+    </div>
+    <div class="note">전제 — 인력·예산이 M1부터 풀가동된다는 가정의 빠른 트랙이다. 아트 분량(스테이지 수)과 플랫폼 범위가 늘면 6개월 상한을 초과할 수 있으므로, M2 버티컬 슬라이스 결과로 스코프를 확정·재조정한다.</div>
+  </div>
+</section>
+
+<!-- 12 RISK -->
+<section id="risk">
+  <div class="wrap">
+    <div class="kicker"><span class="n">13</span> · RISK REGISTER</div>
+    <h2 class="sec">리스크 점검</h2>
+    <table class="risk" style="margin-top:26px">
+      <thead><tr><th style="width:24%">리스크</th><th style="width:12%">수준</th><th>완화 전략</th></tr></thead>
+      <tbody>
+        <tr><td><b>신규 자산 저작권 미확보</b></td><td><span class="lvl hi">치명</span></td><td>OSMU 수익의 근거인 신규 창작 자산의 저작권 귀속을 계약서에 명문화. 미확보 시 게임 수익만 남고 확장 사업 권리를 상실.</td></tr>
+        <tr><td><b>City Connection 자사 재출시·독점성 충돌</b><br>(Rod-Land 등 자레코·아이렘)</td><td><span class="lvl hi">치명</span></td><td>City Connection이 동일 IP를 직접 재출시·라이선싱하는 당사자. 우리 리메이크가 자사 복각과 충돌하지 않는지 확인하고, 라이선스 <b>독점성 조항</b>(타사 리메이크 불허/허용)을 반드시 점검. ③ 리메이크권의 독점적 확보를 계약 전제로.</td></tr>
+        <tr><td><b>판매 기대 과대</b></td><td><span class="lvl hi">높음</span></td><td>게임 매출 추정은 사례 기반 보수적으로(수만~수십만 본). 한 타이틀 올인 금지. 수익 무게중심을 OSMU 확장에 둔다.</td></tr>
+        <tr><td><b>OSMU 확장 실패</b></td><td><span class="lvl md">중간</span></td><td>프리프로덕션부터 굿즈·애니 전제로 캐릭터 설계. 저비용 단편 애니로 확장 반응을 먼저 검증.</td></tr>
+        <tr><td><b>주목 후보 권리·경쟁</b><br>Rainbow Islands 등 활성 프랜차이즈</td><td><span class="lvl md">중간</span></td><td>타이토 등 활발히 전개 중인 IP는 권리·경쟁 실사를 별도로 진행. 정규 TOP 5와 분리 관리.</td></tr>
+        <tr><td><b>장르 포화</b></td><td><span class="lvl md">중간</span></td><td>차별화된 아트 디렉션·세계관으로 승부. 버티컬 슬라이스로 시장 반응 선검증.</td></tr>
+        <tr><td><b>음악·서브 IP·명칭 권리</b></td><td><span class="lvl lo">낮음</span></td><td>OST 등 별개 권리 범위 사전 점검. 영문명 사용 등으로 영화 연계 회피.</td></tr>
+        <tr><td><b>공동제작 운영 마찰</b></td><td><span class="lvl lo">낮음</span></td><td>아트 바이블로 비전 합의, 역할·일정·산출물 귀속 명문화, 주간 동기화 운영.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 13 CHECKLIST -->
+<section id="checklist">
+  <div class="wrap">
+    <div class="kicker"><span class="n">14</span> · DECISION CHECKLIST · 인터랙티브</div>
+    <h2 class="sec">의사결정 체크리스트</h2>
+    <p class="lede">사업 착수 전 점검 항목. 클릭하면 체크된다.</p>
+    <div class="progress"><div class="ptrack"><div class="pfill" id="pfill"></div></div><div class="pnum" id="pnum">0 / 0</div></div>
+    <div id="checks"></div>
+  </div>
+</section>
+
+<!-- 14 VERDICT -->
+<section id="verdict">
+  <div class="wrap">
+    <div class="kicker"><span class="n">15</span> · STRATEGIC VERDICT</div>
+    <h2 class="sec">최종 판단</h2>
+    <p class="lede">리메이크 사업과 신규 IP 구축 중 무엇이 우선인가에 대한 본 보고서의 전략적 판단이다.</p>
+    <div class="opinion">
+      <div class="oh">리메이크 vs 신규 IP — 결론</div>
+      <div class="ob">
+        <p>현 시점에서 <b>저비용 리메이크를 진입 전략으로 삼는 판단은 타당하다.</b> 써니엔터테인먼트의 강점이 아트·캐릭터·기획에 있고 사업 목표가 OSMU 확장이라면, 검증된 IP를 저비용으로 확보하는 리메이크는 신규 IP 구축 대비 자본 효율과 시장 리스크 양면에서 우월하다. 신규 IP는 인지도를 처음부터 쌓는 데 수년과 막대한 마케팅비가 들지만, 리메이크는 이미 확보된 인지도·팬덤·언론 후킹을 그대로 승계한다.</p>
+        <p>다만 한 가지 단서가 있다. 리메이크의 한계는 <b>원작 IP의 소유권이 써니엔터테인먼트에 없다는 점</b>이다. 장기적으로 가장 큰 OSMU 자산 가치(완전한 라이선스 통제권·IP 지분)는 원작 권리자에게 귀속된다. 따라서 리메이크 과정에서 <b>새로 창작하는 캐릭터·세계관의 저작권을 확보</b>하는 것이 결정적이며, 이것이 '공동제작 협의 핵심 01'의 본질적 이유다.</p>
+        <p class="verdict">결론: 리메이크를 OSMU 사업의 저위험 진입 엔진으로 우선 채택하되, 그 과정에서 생성되는 신규 창작 자산을 자체 IP 자산으로 축적한다. 리메이크는 목적지가 아니라, 써니엔터테인먼트가 자체 IP를 소유할 역량·현금흐름·시장 입지를 확보하는 가장 빠른 '진입로'로 활용하는 것이 최적 전략이다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap">
+    <div class="kicker"><span class="n">NEXT STEP</span></div>
+    <h2>REMAKE<br>TO OWN<span class="ar">↗</span></h2>
+    <div class="cblock">
+      <div class="lab">실행 순서</div>
+      <p>① 1·2순위 타이틀 확정(Rod-Land / Liquid Kids 권장) → ② 신규 자산 저작권·로열티 배분 조건 협의 → ③ 1순위 타이틀 <b>버티컬 슬라이스</b> 선제작(M2 목표) → ④ 6개월 공정으로 출시 + 굿즈·써니툰 애니 OSMU 동시 설계.</p>
+    </div>
+    <div class="foot">
+      © 써니엔터테인먼트 (SUNNY ENTERTAINMENT) · 본 보고서는 공개 자료에 기반한 의사결정 보조 분석이며, 평가 매트릭스 점수는 우선순위 판단용 추정치다. 사업 확정 전 캐릭터·시장·계약 실사를 권장한다. · STRATEGY REPORT VER 2.1 · CONFIDENTIAL
+    </div>
+  </div>
+</section>
+
+<script>
+const W={rec:1.1,char:1.5,anime:1.3,art:1.0,econ:1.2,genrefit:0.9};
+const POTMAX=5*(W.rec+W.char+W.anime+W.art+W.econ+W.genrefit);
+const AVAIL={5:1.0,4:0.9,3:0.75,2:0.6,1:0.45};
+const holderLabel={IREM:"아이렘",JALECO:"자레코",TAITO:"타이토",OTHER:"확인"};
+const DATA=[
+ {ko:"Rod-Land",en:"Rod-Land",holder:"JALECO",genre:"큐트 플랫포머",rec:3,char:5,anime:5,art:5,econ:5,genrefit:4,fresh:5,pick:true,hist:"복각·재발매만 · 리메이크/애니 ✕"},
+ {ko:"Liquid Kids",en:"Liquid Kids (미즈바쿠)",holder:"TAITO",genre:"큐트 플랫포머",rec:2,char:5,anime:5,art:5,econ:5,genrefit:4,fresh:5,pick:true,hist:"타이토 컬렉션 수록뿐 · 리메이크/애니 ✕"},
+ {ko:"키드니키",en:"Kid Niki",holder:"IREM",genre:"닌자 플랫포머",rec:3,char:5,anime:4,art:4,econ:5,genrefit:4,fresh:5,pick:true,hist:"원작 후속작만 · 모던 리메이크/애니 ✕"},
+ {ko:"쿵푸마스터",en:"Kung-Fu Master",holder:"IREM",genre:"벨트스크롤",rec:5,char:3,anime:4,art:4,econ:4,genrefit:5,fresh:5,pick:true,hist:"역사적 후속작만 · 모던 풀리메이크/애니 ✕"},
+ {ko:"Don Doko Don",en:"Don Doko Don",holder:"TAITO",genre:"큐트 플랫포머",rec:2,char:5,anime:4,art:4,econ:5,genrefit:4,fresh:5,pick:true,hist:"컬렉션 수록뿐 · 리메이크/애니 ✕"},
+ {ko:"해머보이",en:"Hammerin' Harry",holder:"IREM",genre:"코믹 액션",rec:3,char:4,anime:4,art:4,econ:5,genrefit:4,fresh:5,hist:"복각 컬렉션(Concrete'23) · 리메이크/애니 ✕"},
+ {ko:"닌자 베이스볼",en:"Ninja Baseball Bat Man",holder:"IREM",genre:"벨트스크롤",rec:3,char:4,anime:4,art:5,econ:4,genrefit:4,fresh:5,hist:"복각 수록뿐 · 모던 리메이크/애니 ✕"},
+ {ko:"최후의 닌자",en:"Ninja Spirit",holder:"IREM",genre:"닌자 액션",rec:3,char:3,anime:4,art:5,econ:5,genrefit:4,fresh:5,hist:"복각·컬렉션 수록뿐 · 리메이크/애니 ✕"},
+ {ko:"The Fairyland Story",en:"Fairyland Story",holder:"TAITO",genre:"큐트 액션",rec:2,char:5,anime:4,art:4,econ:5,genrefit:3,fresh:5,hist:"컬렉션 수록뿐 · 리메이크/애니 ✕"},
+ {ko:"미궁도",en:"Kickle Cubicle (迷宮島)",holder:"IREM",genre:"퍼즐 액션",rec:2,char:4,anime:4,art:4,econ:5,genrefit:3,fresh:5,hist:"복각 수록 · 리메이크/애니 ✕"},
+ {ko:"닌자 쿤",en:"Ninja-Kun",holder:"JALECO",genre:"닌자 액션",rec:2,char:5,anime:4,art:4,econ:5,genrefit:4,fresh:4,hist:"컬렉션 수록 · 모던 리메이크/애니 ✕"},
+ {ko:"토마의 전설",en:"Legend of Hero Tonma",holder:"IREM",genre:"판타지 액션",rec:2,char:3,anime:4,art:4,econ:5,genrefit:4,fresh:5,hist:"복각 수록 · 리메이크/애니 ✕"},
+ {ko:"Chack'n Pop",en:"Chack'n Pop",holder:"TAITO",genre:"퍼즐 액션",rec:2,char:4,anime:3,art:4,econ:5,genrefit:3,fresh:5,hist:"컬렉션 수록뿐 · 버블보블 원조"},
+ {ko:"비질란테",en:"Vigilante",holder:"IREM",genre:"벨트스크롤",rec:3,char:3,anime:3,art:4,econ:4,genrefit:4,fresh:5,hist:"복각 수록 · 리메이크/애니 ✕"},
+ {ko:"영의 전설",en:"Legend of Kage",holder:"TAITO",genre:"닌자 액션",rec:3,char:3,anime:4,art:4,econ:5,genrefit:4,fresh:4,hist:"후속(Kage'08)·복각 · 모던 리메이크 ✕"},
+ {ko:"모모코 120%",en:"Momoko 120%",holder:"JALECO",genre:"플랫포머",rec:1,char:4,anime:4,art:3,econ:5,genrefit:3,fresh:5,hist:"복각 수록 · 리메이크/애니 ✕"},
+ {ko:"닌자 자자마루",en:"Ninja JaJaMaru",holder:"JALECO",genre:"닌자 액션",rec:3,char:5,anime:5,art:4,econ:5,genrefit:4,fresh:3,flag:true,hist:"신작(요괴대전'18)·컬렉션'19(권리사) · 애니 ✕"},
+ {ko:"언더커버 콥스",en:"Undercover Cops",holder:"IREM",genre:"벨트스크롤",rec:2,char:3,anime:3,art:4,econ:4,genrefit:4,fresh:5,hist:"복각·재발매(Retro-Bit) · 리메이크 ✕"},
+ {ko:"씨티커넥션",en:"City Connection",holder:"JALECO",genre:"캐주얼 액션",rec:3,char:3,anime:3,art:4,econ:5,genrefit:4,fresh:3,hist:"재발매·후속(Rocket'19) · 애니 ✕"},
+ {ko:"KiKi KaiKai",en:"Pocky & Rocky (奇々怪界)",holder:"TAITO",genre:"슈팅 액션",rec:3,char:5,anime:5,art:4,econ:4,genrefit:4,fresh:2,flag:true,hist:"Reshrined'22 부활·나츠메 라이선스 · 애니 ✕"},
+ {ko:"Formation Z",en:"Formation Z (변신로봇)",holder:"JALECO",genre:"로봇 슈팅",rec:2,char:3,anime:4,art:3,econ:4,genrefit:3,fresh:4,hist:"복각 수록(MSX) · 리메이크 ✕"},
+ {ko:"NewZealand Story",en:"NewZealand Story (Tiki)",holder:"TAITO",genre:"큐트 플랫포머",rec:3,char:5,anime:5,art:5,econ:5,genrefit:4,fresh:1,flag:true,hist:"2026 리메이크(Untold) 막 출시·2007 DS · 애니 ✕"},
+ {ko:"문패트롤",en:"Moon Patrol",holder:"IREM",genre:"사이드 슈팅",rec:4,char:1,anime:2,art:2,econ:5,genrefit:3,fresh:4,hist:"복각·후속 일부 · 모던 리메이크 ✕"},
+ {ko:"Captain Flag",en:"Captain Flag",holder:"JALECO",genre:"액션",rec:1,char:3,anime:3,art:3,econ:4,genrefit:3,fresh:5,hist:"이력 적음 · 확인 필요"},
+ {ko:"HOOK",en:"Hook",holder:"IREM",genre:"벨트스크롤",rec:3,char:2,anime:3,art:3,econ:4,genrefit:3,fresh:4,hist:"복각 수록 · 영화 라이선스 별개"},
+ {ko:"Bubble Bobble",en:"Bubble Bobble (Bub&Bob)",holder:"TAITO",genre:"캐주얼 액션",rec:5,char:5,anime:5,art:5,econ:5,genrefit:4,fresh:1,flag:true,hist:"활성 프랜차이즈(4 Friends'19 등) · 애니 ✕"},
+ {ko:"레인보우 아일랜드",en:"Rainbow Islands (Taito)",holder:"TAITO",genre:"큐트 플랫포머",rec:4,char:5,anime:5,art:5,econ:5,genrefit:4,fresh:1,flag:true,hist:"리메이크 多(Evolution'07·Towering'09)·활성 · 애니 ✕"},
+ {ko:"건포스",en:"GunForce",holder:"IREM",genre:"런앤건",rec:2,char:2,anime:3,art:3,econ:4,genrefit:3,fresh:4,hist:"복각 컬렉션(ININ) 수록"},
+ {ko:"Exerion",en:"Exerion",holder:"JALECO",genre:"슈팅",rec:2,char:1,anime:2,art:2,econ:5,genrefit:3,fresh:4,hist:"복각 수록"},
+ {ko:"Chameleon",en:"Chameleon",holder:"JALECO",genre:"액션",rec:1,char:2,anime:2,art:2,econ:5,genrefit:2,fresh:5,hist:"이력 적음"},
+ {ko:"로드러너",en:"Lode Runner",holder:"IREM",genre:"퍼즐 액션",rec:5,char:2,anime:2,art:3,econ:5,genrefit:3,fresh:1,hist:"리메이크 多(Legacy 등) · 권리 외부"},
+ {ko:"R-Type",en:"R-Type",holder:"IREM",genre:"횡스크롤 슈팅",rec:5,char:1,anime:3,art:3,econ:3,genrefit:3,fresh:1,hist:"리메이크·신작 多(Final2/3·Tactics) · 진행형"}
+];
+DATA.forEach(d=>{const raw=d.rec*W.rec+d.char*W.char+d.anime*W.anime+d.art*W.art+d.econ*W.econ+d.genrefit*W.genrefit;d.pot=Math.round(raw/POTMAX*100);d.total=Math.round(d.pot*AVAIL[d.fresh]);});
+let curFilter="all",sortKey="total",sortDir=-1;
+const tbody=document.querySelector("#mtx tbody");
+function cellNum(v){return '<td class="num"><span class="scorecell">'+v+'</span><span class="cellbar"><i style="width:'+(v*20)+'%"></i></span></td>';}
+function render(){
+  let rows=DATA.filter(d=>curFilter==="all"?true:(curFilter==="PICK"?d.pick:d.holder===curFilter));
+  rows.sort((a,b)=>{let x=a[sortKey],y=b[sortKey];if(typeof x==="string")return sortDir*x.localeCompare(y,"ko");return sortDir*(x-y);});
+  tbody.innerHTML=rows.map(d=>'<tr class="'+(d.pick?'pick':(d.flag?'flagrow':''))+'">'+
+    '<td class="title">'+d.ko+'<span class="en">'+d.en+'</span></td>'+
+    '<td><span class="holdertag">'+(holderLabel[d.holder]||"확인")+'</span></td>'+
+    '<td>'+d.genre+'</td>'+
+    cellNum(d.rec)+cellNum(d.char)+cellNum(d.anime)+cellNum(d.art)+cellNum(d.econ)+cellNum(d.genrefit)+cellNum(d.fresh)+
+    '<td class="histcell">'+d.hist+'</td>'+
+    '<td class="num"><span class="potcell">'+d.pot+'</span></td>'+
+    '<td class="num"><span class="totcell">'+d.total+'</span></td></tr>').join("");
+}
+document.querySelectorAll(".fbtn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".fbtn").forEach(x=>x.classList.remove("active"));b.classList.add("active");curFilter=b.dataset.f;render();}));
+document.querySelectorAll("#mtx th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==="ko"||k==="holder"||k==="genre")?1:-1;}render();}));
+render();
+
+const CHK=[
+ {g:"사업 · 협의",items:[
+   "신규 창작 자산(캐릭터·아트·세계관)의 저작권 귀속 명문화 (공동 또는 써니엔터테인먼트 귀속)",
+   "City Connection 라이선스 독점성 조항 확인 + 자사 재출시(Rod-Land 등)와의 충돌 여부 점검",
+   "게임 및 2차 사업(굿즈·애니·라이선스) 로열티 배분율 단계별 합의",
+   "머천다이징·애니메이션화 권리 및 한국·아시아 권역 사업 권리 귀속·우선권 합의",
+   "음악(OST)·서브 IP·명칭 등 게임 권리와 별개일 수 있는 권리 범위 사전 점검"
+ ]},
+ {g:"타이틀 · 제품",items:[
+   "1·2순위 타이틀 확정 (Rod-Land / 닌자 자자마루 권장)",
+   "주목 후보(Rainbow Islands) 권리·경쟁 별도 실사",
+   "리메이크 스코프 확정 (풀 아트 리메이크 / 리이매지닝)",
+   "굿즈·애니 확장을 전제로 한 캐릭터 설계(명확한 실루엣·턴어라운드)",
+   "구·신 그래픽 토글 등 마케팅 후크 기능 설계",
+   "버티컬 슬라이스(1스테이지 완성본) 선제작 계획 수립"
+ ]},
+ {g:"OSMU · 확장",items:[
+   "각 후보의 기존 리메이크·애니 이력 확인 → 중복·경쟁 회피 (미개척 IP 우선)",
+   "게임→굿즈→애니→라이선스 단계별 OSMU 로드맵 작성",
+   "굿즈모먼트(굿즈)·써니툰(애니) 등 그룹 역량과의 연계 라인 설계",
+   "애니메이션 전담사 써니툰 설립·역할 정비",
+   "저비용 단편 애니로 확장 반응 선검증 계획",
+   "수익 구조의 무게중심을 게임 단독이 아닌 OSMU 확장에 배치"
+ ]},
+ {g:"리스크 · 안전장치",items:[
+   "게임 매출 추정을 사례 기반 보수적으로 산정 (한 타이틀 올인 금지)",
+   "장르 포화도(벨트스크롤 등) 점검 및 아트 차별화 전략 수립",
+   "유통은 콘솔·PC·스팀 중심, TV는 부가 경로로만 검토"
+ ]}
+];
+const ck=document.getElementById("checks");let total=0;
+CHK.forEach(grp=>{const wrap=document.createElement("div");wrap.className="chkgroup";wrap.innerHTML='<span class="gl">'+grp.g+'</span>';
+ grp.items.forEach(t=>{total++;const row=document.createElement("div");row.className="chk";row.innerHTML='<span class="box">✓</span><span class="tx">'+t+'</span>';row.addEventListener("click",()=>{row.classList.toggle("on");updateProg();});wrap.appendChild(row);});ck.appendChild(wrap);});
+function updateProg(){const done=document.querySelectorAll(".chk.on").length;document.getElementById("pfill").style.width=(done/total*100)+"%";document.getElementById("pnum").textContent=done+" / "+total;}
+updateProg();
+</script>
+</body>
+</html>
